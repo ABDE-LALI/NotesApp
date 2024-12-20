@@ -8,7 +8,7 @@ export default function UpdatPass(props) {
     const [incoOld, setincoold] = useState(false);
     const [badLenght, setbadLenght] = useState(false);
     const updatepassword = async () => {
-        if (oldpass.length >= 6 && newpass.length >= 6 && newpass === connwepass) {
+        if (oldpass && newpass.length >= 6 && newpass === connwepass) {
             try {
                 const resp = await axios.put(`https://notes.devlop.tech/api/update-password`, {
                     "current_password": oldpass,
@@ -31,11 +31,10 @@ export default function UpdatPass(props) {
         <input className="pass" type="text" required value={oldpass} onChange={(e) => { setoldpass(e.target.value), setincoold(false) }} placeholder="enter the old password" />
         <input className="pass" type="text" required value={newpass} onChange={(e) => { setnewpass(e.target.value), setbadLenght(false) }} placeholder="enter a new password" />
         <input className="pass" type="text" required value={connwepass} onChange={(e) => { setconnwepass(e.target.value), setnotmatch(false) }} placeholder="Confirm the new password" />
-        <button onClick={() => {
-            updatepassword()
-        }}>save</button><button onClick={() => { props.setshow("allnotes") }}>Cancel</button>
+        <button onClick={() => {updatepassword()}}>save</button>
+        <button onClick={() => { props.setshow("allnotes") }}>Cancel</button>
         {(ismatch || badLenght || incoOld) && <div className="problems">
-            {ismatch && <div className="incoinfo">
+            {ismatch && !badLenght && <div className="incoinfo">
                 The conferamation isnt match the new password!
             </div>}
             {badLenght && <div className="incoinfo">
