@@ -1,0 +1,136 @@
+.notes {
+  // display: grid;
+  // grid-template-columns: repeat(3, 1fr);
+  // grid-template-rows: auto;
+  // gap: 10px;
+  column-count: 3;
+  column-gap: 15px;
+  margin-top: 20px;
+  padding: 20px;
+  width: 100%;
+  overflow-y: scroll;
+
+  .note {
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: relative;
+    transition: transform 0.3s ease, 0.3s ease;
+    break-inside: avoid;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-5px);
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .notedate {
+      font-size: 0.9rem;
+      color: rgba(200, 200, 200, 0.8);
+      margin-bottom: 10px;
+    }
+
+    .noteTile {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: aliceblue;
+      margin-bottom: 10px;
+    }
+
+    .line {
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.3);
+      margin: 10px 0;
+    }
+
+    .noteBody {
+      font-size: 1rem;
+      color: rgba(230, 230, 230, 0.9);
+      line-height: 1.4;
+      height: 150px;
+      overflow-y: scroll;
+    }
+
+    .remnot {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.224);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        color: rgb(214, 214, 214);
+      }
+    }
+
+    .sharedwith {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .nameshort {
+        position: relative; 
+        display: inline-block;
+        background-color: rgba(0, 0, 0, 0.396);
+        color: aliceblue;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-right: 1px;
+        .fullname {
+          visibility: hidden;
+          background-color: rgba(0, 0, 0, 0.75);
+          color: white;
+          text-align: center;
+          padding: 5px 10px;
+          border-radius: 4px;
+          position: absolute;
+          bottom: 125%; 
+          left: 50%;
+          transform: translateX(-50%);
+          opacity: 0;
+          transition: opacity 0.3s;
+      
+          &::after {
+            content: "";
+            position: absolute;
+            top: 100%; 
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent;
+          }
+        }
+      
+        &:hover .fullname {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,39 @@
+@import "../styles/_login";
+@import "../styles/_notes";
+@import "../styles/_newnote";
+@import "../styles/_home";
+@import "../styles/actions";
+@import "../styles/_updatepass";
+* {
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    resize: none;
+     
+    &:focus {
+        border-color: aliceblue;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 1);
+        cursor: auto;
+    }
+
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.6);
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: 4px;
+        background: transparent;
+    }
+}
+
+
